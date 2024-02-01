@@ -8,8 +8,7 @@ const jwt = require('jsonwebtoken')
 const checkStatusUser = async (req, res, next) =>{
     try {
         const conx = new conexion();
-        const msg = await conx.getUserByEmail(req.body.email);
-
+       await conx.getUserByEmail(req.body.email).then(msg=>{
         let today = new Date();
 
         if (msg.dataValues.startAt != null || msg.dataValues.endAt != null) {
@@ -25,6 +24,13 @@ const checkStatusUser = async (req, res, next) =>{
         } else {
             next();
         }
+       })
+        .catch(err=>{
+            return res.status(401).json({ 'msg': 'Error with credentials'});
+
+        });
+
+        
     } catch (error) {
         console.error('Error in checkStatusUser:', error);
         return res.status(500).json({ 'msg': 'Internal server error' });

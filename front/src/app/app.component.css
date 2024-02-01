@@ -17,12 +17,7 @@ nav a {
   letter-spacing: 1px;
   transition: color 0.3s ease-in-out;
 }
-li, ul{
-  list-style-type: none;
-}
-nav a:hover {
-  color: #ff8c00; /* Cambia el color al pasar el ratón sobre el enlace */
-}
+
 
 .toast {
   max-width: 300px;

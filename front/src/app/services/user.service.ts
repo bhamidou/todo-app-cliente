@@ -10,18 +10,29 @@ import {User} from "../interfaces/user";
 export class UserService {
 
   constructor(private http: HttpClient) { }
-  private baseUrl : string = environment.baseUrl+'/login'
+  private baseUrl : string = environment.baseUrl
 
   login(email:string, password:string): Observable<User | undefined> {
     let user = {
       email: email,
       password: password
     }
-    const headers = new HttpHeaders({
-      'x-token' : this.getToken()
-    });
+    
+    return this.http.post<User>(this.baseUrl+'/login',user).pipe(
+      
+      catchError((error) =>{
+        return of(undefined)
+      })
+    )
+  }
+  signup(name:string, email:string, password:string): Observable<User | undefined> {
+    let user = {
+      name: name,
+      email: email,
+      password: password
+    }
 
-    return this.http.post<User>(this.baseUrl,user).pipe(
+    return this.http.post<User>(this.baseUrl+'/user',user).pipe(
       
       catchError((error) =>{
         return of(undefined)

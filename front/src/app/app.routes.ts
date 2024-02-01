@@ -9,6 +9,7 @@ import { PendingTasksComponent } from './task/pending-tasks/pending-tasks.compon
 import { MyTaskComponent } from './task/my-task/my-task.component';
 import { FinishedTaskComponent } from './task/finished-task/finished-task.component';
 import { RankingComponent } from './ranking/ranking.component';
+import { SignupComponent } from './signup/signup.component';
 
 export const routes: Routes = [
   {path: 'home', component: TaskComponent },
@@ -20,5 +21,6 @@ export const routes: Routes = [
   {path: 'tasks', component: ListTaksComponent },
   {path: 'all', component: AllComponent},
   {path: 'login', component: LoginComponent},
+  {path: 'signup', component: SignupComponent},
 
 ];

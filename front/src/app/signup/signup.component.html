@@ -1,1 +1,14 @@
-<p>signup works!</p>
+<h1>Signup</h1>
+@if(showAlert){
+    <app-alert [header]="header" [message]="message" [type]="'danger'"></app-alert>
+}
+<label for="">Name</label>
+<input type="name" [(ngModel)]="name">
+<label for="">Email</label>
+<input type="email" [(ngModel)]="email">
+<label for="">Password</label>
+<input type="password" [(ngModel)]="password">
+<input type="button" (click)="signup()" value="Signup">
+<a routerLink="login">
+    <input type="submit"  value="Login">
+</a>

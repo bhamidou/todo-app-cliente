@@ -24,7 +24,7 @@ export class AppComponent implements OnInit{
   }
   ngOnInit() {
     if(localStorage.getItem('user') == null || localStorage.getItem('user') ==undefined){
-      this.router.navigate(['login'])
+      //this.router.navigate([['login'],['signup']])
     }else{
       this.setHeader()
     }
@@ -36,7 +36,6 @@ export class AppComponent implements OnInit{
   setHeader(){
     if (localStorage.getItem('user') !=null || localStorage.getItem('user') !=undefined ){
       return {
-        id: this.getUserLocal().rtnUser.msg.id, 
         email: this.getUserLocal().rtnUser.msg.email,
         name: this.getUserLocal().rtnUser.msg.name,
         roles: this.getUserLocal().rtnUser.roles

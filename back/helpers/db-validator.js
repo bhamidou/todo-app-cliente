@@ -6,6 +6,7 @@ const uniqueEmail = (email) => {
         const conx = new Conexion();
         conx.getUserByEmail(email)
             .then(msg => {
+                console.log(msg)
                 console.log('Existe');
                 reject(new Error('This email is used by other user'));
 

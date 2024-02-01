@@ -68,7 +68,7 @@ class ConexionSequilze {
             }
         }finally{
             if(resultado == null){
-                throw new Error('Usuario no encontrado')
+                throw Error('Email not found')
             }
         }
         return resultado;

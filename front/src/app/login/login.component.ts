@@ -31,28 +31,29 @@ export class LoginComponent implements OnInit{
   user?: User
   login(){
 
-    this.userService.testlogin(this.email, this.password).subscribe({
+    this.userService.login(this.email, this.password).subscribe({
       next: (user:any | undefined) => {
-        if(user == null){
+        console.log(user)
+        if(user == null || user == undefined ){
           this.showAlert = true
           this.header = 'Error'
           this.message = 'Error with your credentials. Try again!'
         }else{
-          localStorage.setItem('user', JSON.stringify(user.body) )
+          localStorage.setItem('user', JSON.stringify(user))
           this.router.navigate(['home'])
         }
-        console.log(user.body)
         
       },
       error: (err) => {
         console.log(err)
       }
     })
-    this.router.navigate(['/login',this])
   }
 
   ngOnInit() {
-
+    if(localStorage.getItem('user') != null || localStorage.getItem('user') !=undefined){
+      this.router.navigate(['home'])
+    }
   }
 
   checkLocalStorage(valueSearch:string){
