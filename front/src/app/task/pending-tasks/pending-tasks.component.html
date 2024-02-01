@@ -1,0 +1,24 @@
+@if(showAlert){
+    <app-alert [header]="header" [message]="message" [type]="typeAlert"></app-alert>
+}
+
+<table>
+    <thead>
+<th>ID</th>
+<th>Title</th>
+<th>Asign</th>
+    </thead>
+    <tbody>
+        @for(task of getTasks; track task.id){
+            <tr>
+                <td>{{task.id}}</td>
+                <td>{{task.title}}</td>
+                <td><input (change)="addId($event)" id="{{task.id}}" type="checkbox"></td>
+                <td><button routerLink='/task/{{task.id}}'>Show</button></td>
+            </tr>
+        }
+    </tbody>
+</table>
+<input type="submit" (click)="asignMe()" value="Asign me">
+
+

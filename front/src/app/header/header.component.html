@@ -1,0 +1,12 @@
+<nav>
+    <a href="/home">Crear tarea</a>
+    <a href="/my-tasks">Mis tareas</a>
+    <a href="/pending">Pendientes</a>
+    <a href="/finished">Realizadas</a>
+    @if(isAdmin){
+        <a href="/tasks">Gestión de tareas</a>
+        <a href="/ranking">Ranking</a>
+    }
+    <li (click)="logout()">Bienvenido: {{name}}</li>
+</nav>
+

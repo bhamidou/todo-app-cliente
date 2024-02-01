@@ -1,0 +1,7 @@
+<h1>Login</h1>
+@if(showAlert){
+    <app-alert [header]="header" [message]="message" [type]="'danger'"></app-alert>
+}
+<input type="email" [(ngModel)]="email">
+<input type="password" [(ngModel)]="password">
+<input type="button" (click)="login()" value="Iniciar sesión">

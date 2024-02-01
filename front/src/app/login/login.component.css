@@ -1,0 +1,23 @@
+*{
+  font-family: system-ui;
+}
+nav {
+  background-color: #333;
+  padding: 15px 20px;
+  text-align: center;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  padding: 10px 15px;
+  margin: 0 10px;
+  font-size: 18px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  transition: color 0.3s ease-in-out;
+}
+
+nav a:hover {
+  color: #ff8c00; /* Cambia el color al pasar el ratón sobre el enlace */
+}

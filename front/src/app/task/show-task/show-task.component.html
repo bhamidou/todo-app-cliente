@@ -1,0 +1,38 @@
+<h1>ID: {{id}}</h1>
+@if(showAlert){
+    <app-alert [header]="header" [message]="message" [type]="typeAlert"></app-alert>
+}
+
+<label for="">Title</label>
+<input type="text" value="{{title|titlecase}}" [(ngModel)]="title"  >
+<label for="">Description</label>
+<input type="text" [(ngModel)]="description">
+<label for="">Time</label>
+<input type="text" [(ngModel)]="time">
+<label for="">Difficulty</label>
+<select [(ngModel)]="difficulty">
+    @for(difficulty of arrDiff; track difficulty.id){
+        @if(difficulty.id){
+            <option selected>{{difficulty.type}}</option>
+        }@else{
+            <option>{{difficulty.type}}</option>
+        }
+    }
+</select>
+
+<label for="">Created At</label>
+<input  disabled value="{{createdAt | date:'full'}}" [(ngModel)]="createdAt">
+
+<label for="">Progress</label>
+<div class="slidecontainer">
+    <input type="range" min="1" max="100" [(ngModel)]="valueBar" (input)="onInputChange($event)" class="slider" id="myRange">
+    <input type="number" [(ngModel)]="inputValueBar" [value]="inputValueBar" (input)="onInput($event)">
+</div>
+
+
+<input type="submit" (click)="updateTask()" value="Save">
+@if(status <=1){
+    <input type="submit" (click)="finishTask()" value="Finish">
+}@else {
+    <input type="submit" (click)="activateTask()" value="Activate">
+}

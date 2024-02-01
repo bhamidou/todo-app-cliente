@@ -1,0 +1,49 @@
+<h3>{{title}}</h3>
+<button (click)="getPending()" >Pendientes</button>
+<button (click)="getFinish()" >Finalizadas</button>
+<button (click)="getBest()" >Mejor programador</button>
+
+@switch (show) {
+    @case ('pending') {
+        <table>
+            <thead>
+                <th>Pendientes</th>
+                <th>Totales</th>
+                <th>Porcentaje</th>
+            </thead>
+                <tr>
+                    <td>{{topPending.pendientes}}</td>
+                    <td>{{topPending.total}}</td>
+                    <td>{{ topPending.pendientes / topPending.total | percent }}</td>
+                </tr>
+        </table>
+    }
+    @case ('finish') {
+        <table>
+            <thead>
+                <th>Finalizadas</th>
+                <th>Totales</th>
+                <th>Porcentaje</th>
+            </thead>
+                <tr>
+                    <td>{{topPending.finish}}</td>
+                    <td>{{topPending.total}}</td>
+                    <td>{{ topPending.finish / topPending.total | percent }}</td>
+                </tr>
+        </table>
+    }
+    @case ('best') {
+        <table>
+            <thead>
+                <th>User name</th>
+                <th>Count</th>
+            </thead>
+            @for(topPen of topPending; track topPen?.id){
+                <tr>
+                    <td>{{topPen.user.name}}</td>
+                    <td>{{topPen.count}}</td>
+                </tr>
+            }
+        </table>
+    }
+}

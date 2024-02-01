@@ -1,0 +1,28 @@
+<h1>Create new task</h1>
+
+
+@if(showAlert){
+    <app-alert [header]="header" [message]="message" [type]="typeAlert"></app-alert>
+}
+
+<h3>Title</h3>
+<input type="string" [(ngModel)]="title">
+<h3>description</h3>
+
+<input type="string" [(ngModel)]="description">
+<h3>time</h3>
+
+<input type="number" [(ngModel)]="time">
+<h3>difficulty</h3>
+
+<select [(ngModel)]="difficulty">
+    @for(difficulty of arrDiff; track difficulty.id){
+        @if(difficulty.id){
+            <option selected>{{difficulty.type}}</option>
+        }@else{
+            <option>{{difficulty.type}}</option>
+        }
+    }
+</select>
+<input type="submit" value="Crear tarea" (click)="createTask()">
+

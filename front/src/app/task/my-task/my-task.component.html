@@ -1,0 +1,19 @@
+<table>
+    <thead>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Action</th>
+    </thead>
+    <tbody>
+        @for(task of getTasks; track task?.id){
+            @if(task.user?.name != null){
+                <tr>
+                    <td>{{task.id}}</td>
+                    <td >{{task.todo.title}}</td>
+                    <td><button  routerLink='/task/{{task.todo_id}}'>Show</button></td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+
